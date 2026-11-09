@@ -90,6 +90,8 @@
     .msg { font-size: 0.82rem; line-height: 1.45; padding: 10px 14px; border-radius: 16px; margin-bottom: 12px; max-width: 88%; }
     .msg.user { background: var(--rose); color: #fff; margin-left: auto; width: fit-content; border-bottom-right-radius: 4px; }
     .msg.bot { background: var(--blush); color: var(--ink); border-bottom-left-radius: 4px; }
+    .phone { transition: opacity 0.35s ease, transform 0.35s ease; }
+    body.chat-open .phone { opacity: 0; transform: rotate(-4deg) translateY(20px); pointer-events: none; }
 
     /* Sections */
     section { position: relative; padding: 70px 6vw; }
@@ -294,6 +296,15 @@
       const btn = bubble && bubble.shadowRoot && bubble.shadowRoot.querySelector('chat-messenger-entry-point-button');
       if (btn) btn.click();
     }
+
+    // Hide the phone picture while the real chat is open, so the page is less cluttered
+    window.addEventListener('load', () => {
+      const bubble = document.querySelector('chat-messenger-chat-bubble');
+      if (!bubble) return;
+      const sync = () => document.body.classList.toggle('chat-open', bubble.hasAttribute('expanded'));
+      new MutationObserver(sync).observe(bubble, { attributes: true, attributeFilter: ['expanded'] });
+      sync();
+    });
   </script>
 
   <!-- Connects the widget to the Solace agent in CX Agent Studio -->
