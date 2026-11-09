@@ -44,7 +44,11 @@
     .card { background: #fff; border: 1px solid #ece9e2; border-radius: 14px; padding: 24px; }
     .card h3 { margin-top: 0; color: var(--accent); }
     .card p { color: var(--muted); margin-bottom: 0; }
-    footer { padding: 40px 6vw; color: var(--muted); font-size: 0.85rem; border-top: 1px solid #ece9e2; margin-top: 40px; }
+    .card a { display: inline-block; margin-top: 12px; color: var(--accent); font-weight: 600; text-decoration: none; }
+    .card a:hover { text-decoration: underline; }
+    .res-intro { color: var(--muted); margin-top: -8px; }
+    .res-group { font-size: 1.1rem; margin: 28px 0 12px; }
+    #resources { padding-bottom: 80px; }
 
     /* Chat widget position and size (keeps the chat window inside the screen) */
     :root { --chat-messenger-internal-chat-window-height: min(640px, calc(100vh - 120px)); }
@@ -88,21 +92,77 @@
 
   <section id="resources">
     <h2>Resources</h2>
+    <p class="res-intro">Some schemes and services that can help. Solace can also point you to the ones that fit your situation.</p>
+    <h3 class="res-group">Childcare and family support</h3>
     <div class="cards">
       <div class="card">
-        <h3>Add a resource</h3>
-        <p>Replace this with a real service your group researched (name, what it offers, link).</p>
+        <h3>Infant and Childcare Subsidies</h3>
+        <p>Tiered subsidies for infant care and childcare fees at ECDA-licensed centres. Working single parents can get an Additional Subsidy based on household income.</p>
+        <a href="https://www.ecda.gov.sg/parents/preschool-subsidies/infant-and-childcare-subsidy-scheme/overview" target="_blank" rel="noopener">Visit ECDA &rarr;</a>
       </div>
       <div class="card">
-        <h3>Add a resource</h3>
-        <p>Replace this with a real service your group researched (name, what it offers, link).</p>
+        <h3>Check your childcare subsidy</h3>
+        <p>See which childcare and infant care subsidies you may qualify for and how to apply.</p>
+        <a href="https://supportgowhere.life.gov.sg/schemes/INFANT-CHILD-CARE/infant-childcare-subsidies" target="_blank" rel="noopener">Visit SupportGoWhere &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Family Service Centres and ComCare</h3>
+        <p>Call, walk in or email an FSC for family and social support. They can also link you to ComCare and KidSTART. ComCare hotline: 1800 222 0000.</p>
+        <a href="https://www.msf.gov.sg/what-we-do/help-those-in-need/article/programmes/Family-Service-Centres" target="_blank" rel="noopener">Visit MSF &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Support for single unwed parents</h3>
+        <p>Children of single unwed parents get Child Development Account benefits, including the $3,000 First Step Grant, and unwed mothers get 16 weeks of maternity leave.</p>
+        <a href="https://www.msf.gov.sg/media-room/article/Approach-to-Support-Single-Unwed-Parents-in-their-Caregiving-Responsibilities" target="_blank" rel="noopener">Visit MSF &rarr;</a>
+      </div>
+    </div>
+    <h3 class="res-group">Work and leave</h3>
+    <div class="cards">
+      <div class="card">
+        <h3>Childcare Leave</h3>
+        <p>Up to 6 days of paid childcare leave a year for a child under 7, and 2 days of extended childcare leave for a child aged 7 to 12.</p>
+        <a href="https://www.mom.gov.sg/employment-practices/leave/childcare-leave/eligibility-and-entitlement" target="_blank" rel="noopener">Visit MOM &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Parental leave for single parents</h3>
+        <p>Single unwed mothers can take the full 10 weeks of shared parental leave or its cash equivalent. Divorced parents qualify for all Government-Paid leave schemes.</p>
+        <a href="https://www.profamilyleave.msf.gov.sg/entitlements-in-other-situations/single-parent" target="_blank" rel="noopener">Visit MSF &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Maternity Leave</h3>
+        <p>16 weeks of Government-Paid Maternity Leave if your child is a Singapore citizen and you meet the work requirements.</p>
+        <a href="https://www.mom.gov.sg/employment-practices/leave/maternity-leave/eligibility-and-entitlement" target="_blank" rel="noopener">Visit MOM &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Flexible work requests</h3>
+        <p>Since December 2024, employers must have a process for flexible work requests and consider them fairly, such as working from home or staggered hours.</p>
+        <a href="https://quickhr.co/resources/blog/flexible-work-arrangements-singapore-guidelines" target="_blank" rel="noopener">Read the guide &rarr;</a>
+      </div>
+    </div>
+    <h3 class="res-group">Housing</h3>
+    <div class="cards">
+      <div class="card">
+        <h3>HDB Public Rental Scheme</h3>
+        <p>Heavily subsidised rental flats for single parents aged 21 and above with no family support or other housing options.</p>
+        <a href="https://www.hdb.gov.sg/renting-a-flat/public-rental-scheme/eligibility" target="_blank" rel="noopener">Visit HDB &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Proximity Housing Grant</h3>
+        <p>Up to $15,000 in CPF grants to buy a resale flat near or with your parents, so family can help out.</p>
+        <a href="https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/singles/proximity-housing-grant" target="_blank" rel="noopener">Visit HDB &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Housing grants for singles</h3>
+        <p>The Enhanced CPF Housing Grant gives up to $40,000 to help buy a new or resale flat.</p>
+        <a href="https://www.cpf.gov.sg/member/infohub/educational-resources/hdb-for-singles-what-to-consider-before-buying-a-home" target="_blank" rel="noopener">Visit CPF &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Other housing schemes for single parents</h3>
+        <p>An overview of schemes like the Parenthood Provisional Housing Scheme (temporary flats while waiting for a BTO) and ASSIST (BTO quota for divorced or widowed parents).</p>
+        <a href="https://www.moneysmart.sg/home-loan/single-parents-government-housing-schemes-ms" target="_blank" rel="noopener">Visit MoneySmart &rarr;</a>
       </div>
     </div>
   </section>
-
-  <footer>
-    COR2221 AI and Humanity group project, SMU. This chatbot is a student prototype and is not a substitute for professional help.
-  </footer>
 
   <!-- Connects the widget to the Solace agent in CX Agent Studio -->
   <script>
