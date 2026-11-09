@@ -8,7 +8,6 @@
   <!-- CX Agent Studio chat widget (from Deploy > Web widget) -->
   <script defer src="https://www.gstatic.com/chat-messenger/sdk/prod/v1.16/chat-messenger.js"></script>
   <link rel="stylesheet" href="https://www.gstatic.com/chat-messenger/sdk/prod/v1.16/themes/chat-messenger-default.css">
-  <link rel="stylesheet" href="https://www.gstatic.com/chat-messenger/sdk/prod/v1.16/themes/chat-messenger-layout.css">
 
   <style>
     :root {
@@ -48,7 +47,8 @@
     footer { padding: 40px 6vw; color: var(--muted); font-size: 0.85rem; border-top: 1px solid #ece9e2; margin-top: 40px; }
 
     /* Chat widget position */
-    chat-messenger { z-index: 999; position: fixed; }
+    chat-messenger { z-index: 999; position: fixed; bottom: 20px; right: 20px; display: block; width: 64px; height: 64px; }
+    chat-messenger-chat-bubble { display: block; }
   </style>
 </head>
 <body>
@@ -64,7 +64,7 @@
   <header class="hero">
     <h1>A companion for single parents in Singapore</h1>
     <p>Somewhere to talk through the day, sort out what's on your plate, and find the right help when you need it.</p>
-    <span class="hint">Chat with Solace using the chat window on this page</span>
+    <span class="hint">Tap the chat bubble at the bottom right to talk to Solace</span>
   </header>
 
   <section id="how">
@@ -118,17 +118,12 @@
     });
   </script>
 
-  <chat-messenger url-allowlist="*">
-    <chat-messenger-container
+  <chat-messenger url-allowlist="*" language-code="en">
+    <chat-messenger-chat-bubble
       chat-title="Solace"
       chat-title-icon="https://gstatic.com/dialogflow-console/common/assets/ccai-favicons/conversational_agents.png"
-      enable-file-upload
       enable-audio-input
-    >
-      <chat-reset-session-button slot="titlebar-actions" title-text="Start new chat"></chat-reset-session-button>
-      <chat-toggle-dialog-button slot="titlebar-actions" title-text-expanded="Collapse" title-text-collapsed="Expand"></chat-toggle-dialog-button>
-      <chat-messenger-close-button slot="titlebar-actions" title-text="Close"></chat-messenger-close-button>
-    </chat-messenger-container>
+    ></chat-messenger-chat-bubble>
   </chat-messenger>
 
 </body>
