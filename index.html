@@ -46,7 +46,8 @@
     .card p { color: var(--muted); margin-bottom: 0; }
     footer { padding: 40px 6vw; color: var(--muted); font-size: 0.85rem; border-top: 1px solid #ece9e2; margin-top: 40px; }
 
-    /* Chat widget position */
+    /* Chat widget position and size (keeps the chat window inside the screen) */
+    :root { --chat-messenger-internal-chat-window-height: min(640px, calc(100vh - 120px)); }
     chat-messenger { z-index: 999; position: fixed; bottom: 20px; right: 20px; display: block; width: 64px; height: 64px; }
     chat-messenger-chat-bubble { display: block; }
   </style>
@@ -112,7 +113,8 @@
           tokenBroker: {
             enableTokenBroker: true,
             enableRecaptcha: false
-          }
+          },
+          enableWelcomeEvent: true  // Solace greets the user first
         }),
       );
     });
