@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solace | Support for Single Parents</title>
+
+  <!-- CX Agent Studio chat widget (from Deploy > Web widget) -->
+  <script defer src="https://www.gstatic.com/chat-messenger/sdk/prod/v1.16/chat-messenger.js"></script>
+  <link rel="stylesheet" href="https://www.gstatic.com/chat-messenger/sdk/prod/v1.16/themes/chat-messenger-default.css">
+  <link rel="stylesheet" href="https://www.gstatic.com/chat-messenger/sdk/prod/v1.16/themes/chat-messenger-layout.css">
+
+  <style>
+    :root {
+      --ink: #1f2a2e;
+      --muted: #5b6b70;
+      --accent: #2f7d6d;
+      --accent-soft: #e4f1ed;
+      --bg: #fbfaf7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 6vw; border-bottom: 1px solid #ece9e2;
+    }
+    nav .brand { font-weight: 700; font-size: 1.2rem; color: var(--accent); }
+    nav a { color: var(--ink); text-decoration: none; margin-left: 24px; font-size: 0.95rem; }
+    .hero { padding: 80px 6vw 60px; max-width: 900px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin: 0 0 16px; }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 620px; }
+    .hint {
+      display: inline-block; margin-top: 20px; padding: 10px 16px;
+      background: var(--accent-soft); color: var(--accent); border-radius: 999px; font-weight: 600;
+    }
+    section { padding: 40px 6vw; }
+    h2 { font-size: 1.6rem; margin-bottom: 20px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .card { background: #fff; border: 1px solid #ece9e2; border-radius: 14px; padding: 24px; }
+    .card h3 { margin-top: 0; color: var(--accent); }
+    .card p { color: var(--muted); margin-bottom: 0; }
+    footer { padding: 40px 6vw; color: var(--muted); font-size: 0.85rem; border-top: 1px solid #ece9e2; margin-top: 40px; }
+
+    /* Chat widget position */
+    chat-messenger { z-index: 999; position: fixed; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="brand">Solace</div>
+    <div>
+      <a href="#how">How it works</a>
+      <a href="#resources">Resources</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>A companion for single parents in Singapore</h1>
+    <p>Somewhere to talk through the day, sort out what's on your plate, and find the right help when you need it.</p>
+    <span class="hint">Chat with Solace using the chat window on this page</span>
+  </header>
+
+  <section id="how">
+    <h2>How it works</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Talk it out</h3>
+        <p>Share how you're feeling. The bot listens first and helps you reflect, without judging.</p>
+      </div>
+      <div class="card">
+        <h3>Get practical help</h3>
+        <p>Ask about schedules, childcare, or admin, and get clear next steps.</p>
+      </div>
+      <div class="card">
+        <h3>Find support</h3>
+        <p>When you need a person, the bot points you to services that can help.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources">
+    <h2>Resources</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Add a resource</h3>
+        <p>Replace this with a real service your group researched (name, what it offers, link).</p>
+      </div>
+      <div class="card">
+        <h3>Add a resource</h3>
+        <p>Replace this with a real service your group researched (name, what it offers, link).</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    COR2221 AI and Humanity group project, SMU. This chatbot is a student prototype and is not a substitute for professional help.
+  </footer>
+
+  <!-- Connects the widget to the Solace agent in CX Agent Studio -->
+  <script>
+    window.addEventListener("chat-messenger-loaded", () => {
+      chatSdk.registerContext(
+        chatSdk.prebuilts.ces.createContext({
+          deploymentName: "projects/241258633417/locations/us/apps/9ff78e6e-7789-49c2-9267-2f33644c0753/deployments/6aa854d7-5e93-4c10-ad5e-a1ebe17640f4",
+          tokenBroker: {
+            enableTokenBroker: true,
+            enableRecaptcha: false
+          }
+        }),
+      );
+    });
+  </script>
+
+  <chat-messenger url-allowlist="*">
+    <chat-messenger-container
+      chat-title="Solace"
+      chat-title-icon="https://gstatic.com/dialogflow-console/common/assets/ccai-favicons/conversational_agents.png"
+      enable-file-upload
+      enable-audio-input
+    >
+      <chat-reset-session-button slot="titlebar-actions" title-text="Start new chat"></chat-reset-session-button>
+      <chat-toggle-dialog-button slot="titlebar-actions" title-text-expanded="Collapse" title-text-collapsed="Expand"></chat-toggle-dialog-button>
+      <chat-messenger-close-button slot="titlebar-actions" title-text="Close"></chat-messenger-close-button>
+    </chat-messenger-container>
+  </chat-messenger>
+
+</body>
+</html>
